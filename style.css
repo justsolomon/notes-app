@@ -1,43 +1,50 @@
 body {
     background: linear-gradient(to bottom, rgba(239, 45, 45, 0.7) 0%, rgba(255, 255, 255, 0) 100%), #FF8181;
-    margin: 0px;
-    text-align: center;
+    background-repeat: no-repeat;
     color: white;
+}
+
+.container {
+    width: 95%;
+    max-width: 1000px;
+    text-align: center;
+    margin: auto;
 }
 
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-weight: normal;
     opacity: 0.8;
-    font-size: 150px;
-    margin: 0px;
+    font-size: 8rem;
+    margin: 0;
+    line-height: 12rem;
 }
 
 section {
     font-family: 'Kaushan Script', cursive;
-    font-weight: normal;
+    font-weight: 100;
     opacity: 0.7;
-    width: 80%;
-    font-size: 50px;
-    text-align: center;
-    margin-left: 10%;
-    margin-top: 100px;
+    font-size: 2.5rem;
+    margin-top: 1.2em;
 }
 
 button {
     background-color: rgba(196, 65, 65, 0.25);
-    border-radius: 30px;
     border-color: rgba(196, 65, 65, 0);
-    height: 75px;
-    width: 300px;
-    margin-top: 190px;
-    margin-bottom: 0px;
-    font-family: 'Shadows Into Light', cursive;
+    border-radius: 15px;
+    width: 16em;
+    height: 3.5rem;
+    margin-top: 3rem;
 }
 
-button>a {
-    text-align: center;
-    color: white;
-    font-size: 50px;
+button a {
     text-decoration: none;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2rem;
+    color: white;
+    opacity: 0.9;
+}
+
+button a:hover,
+button a:focus {
+    color: #cacaca;
 }
