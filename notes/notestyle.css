@@ -1,0 +1,75 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: white;
+    text-align: center;
+}
+
+nav {
+    background-color: rgb(228, 228, 228);
+    color: black;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    font-size: 2.5rem;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+nav li a {
+    text-decoration: none;
+    color: black;
+    margin-right: 1em;
+}
+
+.dark-mode {
+    display: inline-block;
+    background-color: black;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+main p {
+    font-size: 5rem;
+    text-align: center;
+    width: 90%;
+    margin: 3rem auto;
+}
+
+main a {
+    text-decoration: none;
+    font-size: 3rem;
+    color: rgb(59, 16, 16);
+}
+
+main a:hover {
+    color: grey;
+}
+
+@media (max-width: 675px) {
+    nav ul {
+        font-size: 1.5rem;
+    }
+    .dark-mode {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+    main p {
+        font-size: 3.5rem;
+    }
+    main a {
+        font-size: 2rem;
+    }
+}
