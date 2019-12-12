@@ -1,3 +1,26 @@
+/* ===============
+    Color theme
+=============== */
+
+:root {
+    --primary-color: rgb(228, 228, 228);
+    --font-color: rgb(0, 0, 0);
+    --bg-color: rgb(255, 255, 255);
+    --link-color: rgb(59, 16, 16);
+}
+
+[data-theme="dark"] {
+    --primary-color: #5c657c;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --link-color: #929fc4;
+}
+
+
+/* ===============
+    Whole document
+=============== */
+
 html {
     box-sizing: border-box;
 }
@@ -9,13 +32,19 @@ html {
 }
 
 body {
-    background-color: white;
+    background-color: var(--bg-color);
     text-align: center;
+    color: var(--font-color)
 }
 
+
+/* ==================
+    Nav-Bar
+================== */
+
 nav {
-    background-color: rgb(228, 228, 228);
-    color: black;
+    background-color: var(--primary-color);
+    color: var(--font-color);
 }
 
 nav ul {
@@ -25,21 +54,79 @@ nav ul {
     align-items: center;
     margin: 0 auto;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 nav li a {
     text-decoration: none;
-    color: black;
+    color: var(--font-color);
     margin-right: 1em;
 }
 
 .dark-mode {
+    display: flex;
+    align-items: center;
+}
+
+
+/* ==================
+    Dark mode switch
+===================== */
+
+.switch {
+    position: relative;
     display: inline-block;
-    background-color: black;
-    width: 2rem;
-    height: 2rem;
+    width: 3.75rem;
+    height: 2.13rem;
+    margin-left: .5rem;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.63rem;
+    width: 1.63rem;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
     border-radius: 50%;
 }
+
+input:checked+.slider {
+    background-color: rgb(17, 22, 26);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px rgb(19, 21, 22);
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+
+/* ==============
+    Main body
+============== */
 
 main p {
     font-size: 5rem;
@@ -51,7 +138,7 @@ main p {
 main a {
     text-decoration: none;
     font-size: 3rem;
-    color: rgb(59, 16, 16);
+    color: var(--link-color);
 }
 
 main a:hover {
@@ -61,10 +148,25 @@ main a:hover {
 @media (max-width: 675px) {
     nav ul {
         font-size: 1.5rem;
+        padding: 0;
+    }
+    nav li a {
+        margin-right: 1rem;
     }
     .dark-mode {
-        width: 1.2rem;
-        height: 1.2rem;
+        margin-left: 1rem;
+    }
+    .switch {
+        width: 2rem;
+        height: 1.3rem;
+        margin-left: .2rem;
+    }
+    .slider:before {
+        height: .9rem;
+        width: .9rem;
+    }
+    input:checked+.slider:before {
+        transform: translateX(10px);
     }
     main p {
         font-size: 3.5rem;
