@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+    <title>New Note</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="notestyle.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="dark-mode"><span>Dark Mode:</span>
+                <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </li>
+            <li><a href="notes.html">Saved Notes</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="newnote-container">
+            <form>
+                <textarea placeholder="Add text here"></textarea>
+            </form>
+            <div class="button-style">
+                <button class="action-button save-button" >Save</button>
+                <button class="action-button clear-button">Clear</button>
+            </div>
+            <button class="addnewnote-button">Add another note</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

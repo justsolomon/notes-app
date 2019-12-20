@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Saved Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="notestyle.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="dark-mode"><span>Dark Mode:</span>
+                <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </li>
+            <li><a href="addnote.html">Add Note</a></li>
+        </ul>
+    </nav>
+    <main>
+        <p>Looks like you have no saved notes yet :( </p>
+        <a href="addnote.html">Add new note</a>
+    </main>
+
+    <script>
+        const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        //checks for last theme in browser storage
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        //enables toggle between dark and light themes 
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light')
+                localStorage.setItem('theme', 'light')
+            }
+        };
+
+        toggleSwitch.addEventListener('change', switchTheme);
+    </script>
+</body>
+
+</html>

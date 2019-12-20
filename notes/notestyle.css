@@ -1,0 +1,237 @@
+/* ===============
+    Color theme
+=============== */
+
+:root {
+    --primary-color: rgb(228, 228, 228);
+    --font-color: rgb(0, 0, 0);
+    --bg-color: rgb(255, 255, 255);
+    --link-color: rgb(59, 16, 16);
+    --button-color: rgba(228, 228, 228, .8);
+}
+
+[data-theme="dark"] {
+    --primary-color: #5c657c;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --link-color: #929fc4;
+    --button-color: #6A789B;
+}
+
+
+/* ===============
+    Whole document
+=============== */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--bg-color);
+    text-align: center;
+    color: var(--font-color)
+}
+
+
+/* ==================
+    Nav-Bar
+================== */
+
+nav {
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    font-size: 2.5rem;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+nav li a {
+    text-decoration: none;
+    color: var(--font-color);
+    margin-right: 1em;
+}
+
+.dark-mode {
+    display: flex;
+    align-items: center;
+}
+
+
+/* ==================
+    Dark mode switch
+===================== */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 3.75rem;
+    height: 2.13rem;
+    margin-left: .5rem;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.63rem;
+    width: 1.63rem;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: rgb(17, 22, 26);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px rgb(19, 21, 22);
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+
+/* ==============
+    Main body
+============== */
+
+main p {
+    font-size: 5rem;
+    text-align: center;
+    width: 90%;
+    margin: 3rem auto;
+}
+
+main a {
+    text-decoration: none;
+    font-size: 3rem;
+    color: var(--link-color);
+}
+
+main a:hover {
+    color: grey;
+}
+
+@media (max-width: 675px) {
+    nav ul {
+        font-size: 1.5rem;
+        padding: 0;
+    }
+    nav li a {
+        margin-right: 1rem;
+    }
+    .dark-mode {
+        margin-left: 1rem;
+    }
+    .switch {
+        width: 2rem;
+        height: 1.3rem;
+        margin-left: .2rem;
+    }
+    .slider:before {
+        height: .9rem;
+        width: .9rem;
+    }
+    input:checked+.slider:before {
+        transform: translateX(10px);
+    }
+    main p {
+        font-size: 3.5rem;
+    }
+    main a {
+        font-size: 2rem;
+    }
+}
+
+/* =======================
+    Styles for new note
+======================= */
+
+.newnote-container {
+    margin: 3em auto;
+    width: 90%;
+}
+
+textarea {
+    height: 25em;
+    width: 90%;
+    border-radius: 2em;
+    padding: 1em;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: var(--font-color);
+    font-size: .9rem;
+}
+
+.button-style {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+
+button {
+    height: 2em;
+    font-size: 2rem;
+    border-radius: 1em;
+    width: 12em;
+    background-color: var(--button-color);
+    border: 1px solid var(--button-color);
+    color: var(--font-color);
+}
+
+.action-button {
+    width: 5em;
+}
+
+.addnewnote-button {
+    margin-top: .8em;
+}
+
+@media (max-width: 675px) {
+    textarea {
+        width: 100%;
+        height: 15em;
+    }
+    button {
+        width: 10em;
+        font-size: 1.5rem;
+    }
+    .action-button {
+        width: 4em;
+    }
+}
