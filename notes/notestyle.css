@@ -7,6 +7,7 @@
     --font-color: rgb(0, 0, 0);
     --bg-color: rgb(255, 255, 255);
     --link-color: rgb(59, 16, 16);
+    --button-color: rgba(228, 228, 228, .8);
 }
 
 [data-theme="dark"] {
@@ -14,6 +15,7 @@
     --font-color: #e1e1ff;
     --bg-color: #161625;
     --link-color: #929fc4;
+    --button-color: #6A789B;
 }
 
 
@@ -173,5 +175,63 @@ main a:hover {
     }
     main a {
         font-size: 2rem;
+    }
+}
+
+/* =======================
+    Styles for new note
+======================= */
+
+.newnote-container {
+    margin: 3em auto;
+    width: 90%;
+}
+
+textarea {
+    height: 25em;
+    width: 90%;
+    border-radius: 2em;
+    padding: 1em;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: var(--font-color);
+    font-size: .9rem;
+}
+
+.button-style {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+
+button {
+    height: 2em;
+    font-size: 2rem;
+    border-radius: 1em;
+    width: 12em;
+    background-color: var(--button-color);
+    border: 1px solid var(--button-color);
+    color: var(--font-color);
+}
+
+.action-button {
+    width: 5em;
+}
+
+.addnewnote-button {
+    margin-top: .8em;
+}
+
+@media (max-width: 675px) {
+    textarea {
+        width: 100%;
+        height: 15em;
+    }
+    button {
+        width: 10em;
+        font-size: 1.5rem;
+    }
+    .action-button {
+        width: 4em;
     }
 }
