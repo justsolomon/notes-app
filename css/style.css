@@ -50,8 +50,11 @@ button a:focus {
 }
 
 @media (max-width: 500px) {
+    h1 {
+        margin-bottom: 0;
+    }
     section {
-        margin-top: 0em;
+        margin-top: 0;
     }
     button {
         margin-top: 2rem;
