@@ -51,7 +51,7 @@ button a:focus {
 
 @media (max-width: 500px) {
     section {
-        margin-top: .3em;
+        margin-top: 0em;
     }
     button {
         margin-top: 2rem;
