@@ -233,10 +233,10 @@ button {
         font-size: 1.4rem;
     }
     nav .newnote-navbar-link {
-        margin-right: .3rem;
+        margin-right: .5rem;
     }
     nav .newnote-navbar-darkmode {
-        margin-left: .3rem;
+        margin-left: .5rem;
     }
     textarea {
         width: 100%;
