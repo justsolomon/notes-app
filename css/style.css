@@ -48,3 +48,12 @@ button a:hover,
 button a:focus {
     color: #cacaca;
 }
+
+@media (max-width: 500px) {
+    section {
+        margin-top: .5em;
+    }
+    button {
+        margin-top: 2rem;
+    }
+}

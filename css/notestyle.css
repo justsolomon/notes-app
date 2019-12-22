@@ -147,6 +147,11 @@ main a:hover {
     color: grey;
 }
 
+
+/* =====================
+    For Mobile screens
+===================== */
+
 @media (max-width: 675px) {
     nav ul {
         font-size: 1.5rem;
@@ -177,6 +182,7 @@ main a:hover {
         font-size: 2rem;
     }
 }
+
 
 /* =======================
     Styles for new note
@@ -223,6 +229,15 @@ button {
 }
 
 @media (max-width: 675px) {
+    nav .newnote-navbar-list {
+        font-size: 1.4rem;
+    }
+    nav .newnote-navbar-link {
+        margin-right: .5rem;
+    }
+    nav .newnote-navbar-darkmode {
+        margin-left: .5rem;
+    }
     textarea {
         width: 100%;
         height: 15em;

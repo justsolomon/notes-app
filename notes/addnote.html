@@ -3,19 +3,19 @@
 <head>
     <title>New Note</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="notestyle.css">
+    <link rel="stylesheet" href="../css/notestyle.css">
 </head>
 
 <body>
     <nav>
-        <ul>
-            <li class="dark-mode"><span>Dark Mode:</span>
+        <ul class="newnote-navbar-list">
+            <li class="dark-mode newnote-navbar-darkmode"><span>Dark Mode:</span>
                 <label class="switch">
                 <input type="checkbox">
                 <span class="slider"></span>
               </label>
             </li>
-            <li><a href="notes.html">Saved Notes</a></li>
+            <li><a href="notes.html" class="newnote-navbar-link">Saved Notes</a></li>
         </ul>
     </nav>
     <main>
@@ -25,7 +25,7 @@
             </form>
             <div class="button-style">
                 <button class="action-button clear-button">Clear</button>
-                <button class="action-button save-button" >Save</button>
+                <button class="action-button save-button">Save</button>
             </div>
             <button class="addnewnote-button">Add another note</button>
         </div>
