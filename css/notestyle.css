@@ -207,6 +207,10 @@ textarea {
     letter-spacing: .03rem;
 }
 
+textarea::placeholder {
+    color: var(--font-color);
+}
+
 .button-style {
     display: flex;
     justify-content: space-around;
