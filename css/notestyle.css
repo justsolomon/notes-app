@@ -194,7 +194,7 @@ main a:hover {
 }
 
 textarea {
-    height: 17em;
+    height: 20em;
     width: 90%;
     border-radius: 2em;
     padding: 1em;
@@ -227,9 +227,10 @@ button {
     width: 5em;
 }
 
-.addnewnote-button {
+
+/* .addnewnote-button {
     margin-top: .8em;
-}
+} */
 
 @media (max-width: 675px) {
     nav .newnote-navbar-list {
