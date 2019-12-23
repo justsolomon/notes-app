@@ -194,14 +194,17 @@ main a:hover {
 }
 
 textarea {
-    height: 25em;
+    height: 20em;
     width: 90%;
     border-radius: 2em;
     padding: 1em;
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
     color: var(--font-color);
-    font-size: .9rem;
+    font-size: 1.3rem;
+    resize: none;
+    font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    letter-spacing: .03rem;
 }
 
 .button-style {
@@ -224,9 +227,10 @@ button {
     width: 5em;
 }
 
-.addnewnote-button {
+
+/* .addnewnote-button {
     margin-top: .8em;
-}
+} */
 
 @media (max-width: 675px) {
     nav .newnote-navbar-list {
@@ -241,6 +245,7 @@ button {
     textarea {
         width: 100%;
         height: 15em;
+        font-size: 1.1rem;
     }
     button {
         width: 10em;

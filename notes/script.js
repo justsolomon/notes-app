@@ -26,6 +26,17 @@ function switchTheme(e) {
 
 toggleSwitch.addEventListener('change', switchTheme);
 
-/* ================
-    To store notes
-================ */
+/* ==================
+    To clear textarea
+=================== */
+
+const textarea = document.querySelector('textarea');
+const clearButton = document.querySelector('.clear-button');
+
+function clearTextArea() {
+    if (textarea.value !== '') {
+        textarea.value = '';
+    }
+};
+
+clearButton.addEventListener('click', clearTextArea);
