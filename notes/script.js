@@ -40,3 +40,35 @@ function clearTextArea() {
 };
 
 clearButton.addEventListener('click', clearTextArea);
+
+/* ==================
+    To save notes
+=================== */
+
+const saveButton = document.querySelector('.save-button');
+let notesList = new Array;
+
+function saveToStorage() {
+    let note = textarea.value;
+    notesList.push({
+        id: Date.now(),
+        text: note
+    });
+    localStorage['notes'] = JSON.stringify(notesList);
+}
+
+function saveNote() {
+    if (textarea.value !== '') {
+        if (localStorage.length === 1) {
+            saveToStorage();
+        } else {
+            notesList = JSON.parse(localStorage['notes']);
+            saveToStorage();
+        }
+        textarea.value = '';
+    } else {
+        alert('Note cannot be empty');
+    }
+};
+
+saveButton.addEventListener('click', saveNote);
