@@ -52,13 +52,17 @@
             get and display notes
         ======================== */
         const body = document.querySelector('body');
+        const main = document.querySelector('main');
 
         function getNote() {
-            let notesList = JSON.parse(localStorage['notes']);
-            for (let i = 0; i <= notesList.length; i++) {
-                let note = document.createElement('li')
-                note.textContent = notesList[i].text;
-                body.appendChild(note);
+            if (localStorage.length > 1) {
+                body.removeChild(main);
+                let notesList = JSON.parse(localStorage['notes']);
+                for (let i = 0; i <= notesList.length; i++) {
+                    let note = document.createElement('li')
+                    note.textContent = notesList[i].text;
+                    body.appendChild(note);
+                }
             }
         }
 
