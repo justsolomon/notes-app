@@ -47,6 +47,22 @@
         };
 
         toggleSwitch.addEventListener('change', switchTheme);
+
+        /* =======================
+            get and display notes
+        ======================== */
+        const body = document.querySelector('body');
+
+        function getNote() {
+            let notesList = JSON.parse(localStorage['notes']);
+            for (let i = 0; i <= notesList.length; i++) {
+                let note = document.createElement('li')
+                note.textContent = notesList[i].text;
+                body.appendChild(note);
+            }
+        }
+
+        window.onload = getNote;
     </script>
 </body>
 
