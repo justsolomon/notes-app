@@ -1,0 +1,63 @@
+:root {
+    --primary-color: rgb(228, 228, 228);
+    --font-color: rgb(0, 0, 0);
+    --bg-color: rgb(255, 255, 255);
+    --link-color: rgb(59, 16, 16);
+    --button-color: rgba(228, 228, 228, .8);
+}
+
+[data-theme="dark"] {
+    --primary-color: #5c657c;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --link-color: #929fc4;
+    --button-color: #6A789B;
+}
+
+.notes-list {
+    display: flex;
+    width: 95%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.new-note {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: var(--font-color);
+    width: 30%;
+    margin: 2% 0;
+    max-height: 10em;
+    border-radius: 1em;
+    padding: 1em;
+    padding-bottom: 2em;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.2rem;
+    word-wrap: break-word;
+}
+
+.new-note:hover {
+    background-color: var(--button-color);
+    border: 1px solid var(--button-color);
+    cursor: pointer;
+}
+
+.delete-all-notes {
+    height: 2em;
+    width: 10em;
+    margin-top: 2em;
+}
+
+@media (max-width: 675px) {
+    .notes-list {
+        margin-top: 1em;
+    }
+    .new-note {
+        width: 48%;
+        max-height: 8em;
+    }
+}
