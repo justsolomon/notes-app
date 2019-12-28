@@ -231,10 +231,9 @@ button {
     width: 5em;
 }
 
-
-/* .addnewnote-button {
-    margin-top: .8em;
-} */
+.edit-button {
+    width: 8em;
+}
 
 @media (max-width: 675px) {
     nav .newnote-navbar-list {
@@ -257,5 +256,12 @@ button {
     }
     .action-button {
         width: 4em;
+    }
+    .edit-button {
+        width: 7em;
+        font-size: 1.3rem;
+    }
+    .delete-button {
+        font-size: 1.3rem;
     }
 }
