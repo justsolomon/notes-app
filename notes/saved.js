@@ -1,3 +1,5 @@
+localStorage.setItem('theme', '');
+
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
@@ -86,6 +88,9 @@ deleteNote.addEventListener('click', function() {
             return !(currentnote.id == textarea.id);
         });
         localStorage['notes'] = JSON.stringify(notesList);
+        if (notesList == false) {
+            localStorage.removeItem('notes');
+        }
         location.reload();
     }
 });
