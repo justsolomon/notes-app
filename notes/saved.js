@@ -70,8 +70,7 @@ window.onload = getNote;
 //to delete all notes
 
 deleteAllButton.addEventListener('click', function() {
-    let confirmation = window.confirm(`Are you sure you want to delete all notes?
-    Click "Ok" to continue or "Cancel" to abort this operation`);
+    let confirmation = window.confirm(`Are you sure you want to delete all notes? Click "Ok" to continue or "Cancel" to abort this operation`);
     if (confirmation === true) {
         localStorage.removeItem('notes');
         location.reload();
@@ -81,8 +80,7 @@ deleteAllButton.addEventListener('click', function() {
 //to delete a specific note
 
 deleteNote.addEventListener('click', function() {
-    let confirmation = window.confirm(`Are you sure you want to delete this note?
-    Click "Ok" to continue or "Cancel" to abort this operation`);
+    let confirmation = window.confirm(`Are you sure you want to delete this note? Click "Ok" to continue or "Cancel" to abort this operation`);
     if (confirmation === true) {
         notesList = notesList.filter(currentnote => {
             return !(currentnote.id == textarea.id);
