@@ -2,6 +2,8 @@
     To toggle between themes
 ========================== */
 
+localStorage.setItem('theme', '');
+
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
