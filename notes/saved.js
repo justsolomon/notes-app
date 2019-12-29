@@ -1,5 +1,3 @@
-localStorage.setItem('theme', '');
-
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
@@ -29,19 +27,29 @@ toggleSwitch.addEventListener('change', switchTheme);
 ======================== */
 const body = document.querySelector('body');
 const main = document.querySelector('main');
-const list = document.createElement('ul');
-const deleteAllButton = document.createElement('button');
 const editModal = document.querySelector('.modal');
 const textarea = document.querySelector('textarea');
 const editNote = document.querySelector('.edit-button');
 const deleteNote = document.querySelector('.delete-button');
+const exitModal = document.querySelector('.exit-modal-button');
+const editDate = document.querySelector('.time-edited');
+// const exitModalConfirm = document.querySelector('.exit-modal-confirmation');
 
+const list = document.createElement('ul');
+const notesNumber = document.createElement('p');
+const deleteAllButton = document.createElement('button');
 deleteAllButton.className = 'delete-all-notes';
 deleteAllButton.textContent = 'Delete all notes';
 list.className = 'notes-list';
+notesNumber.className = 'note-number';
+body.appendChild(notesNumber);
 body.appendChild(list);
 
 let notesList = JSON.parse(localStorage['notes']);
+notesNumber.innerHTML = `Number of saved notes: ${notesList.length}`;
+
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function getNote() {
     if (localStorage.length > 1) {
@@ -60,6 +68,7 @@ function getNote() {
                 editModal.style.display = 'block';
                 textarea.value = note.textContent;
                 textarea.id = notesList[i].id;
+                editDate.textContent = notesList[i].date;
             })
         }
     }
@@ -98,9 +107,11 @@ deleteNote.addEventListener('click', function() {
 editNote.addEventListener('click', function() {
     notesList = notesList.map(currentnote => {
         if (currentnote.id == textarea.id) {
+            let noteDate = new Date;
             return {
                 id: currentnote.id,
-                text: textarea.value
+                text: textarea.value,
+                date: `Last edited at ${noteDate.toLocaleTimeString()} on ${days[noteDate.getDay()]}, ${noteDate.getDate()} ${months[noteDate.getMonth()]} ${noteDate.getFullYear()}`
             };
         } else {
             return currentnote;
@@ -108,4 +119,13 @@ editNote.addEventListener('click', function() {
     })
     localStorage['notes'] = JSON.stringify(notesList);
     location.reload();
+})
+
+exitModal.addEventListener('click', function() {
+    let confirmation = window.confirm('Are you sure you want to exit? Any changes made to this note will not be saved');
+    if (confirmation === true) {
+        editModal.style.display = 'none';
+    } else {
+        editModal.style.display = 'block';
+    }
 })
