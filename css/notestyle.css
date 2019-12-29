@@ -235,6 +235,23 @@ button {
     width: 8em;
 }
 
+.save-successful-modal {
+    display: none;
+}
+
+.save-success {
+    color: green;
+}
+
+.hidden-alert {
+    display: none;
+    font-size: 4rem;
+    color: red;
+    margin: 0;
+    margin-top: -2.5rem;
+    width: 100%;
+}
+
 @media (max-width: 675px) {
     nav .newnote-navbar-list {
         font-size: 1.4rem;
@@ -263,5 +280,10 @@ button {
     }
     .delete-button {
         font-size: 1.3rem;
+    }
+    .hidden-alert {
+        font-size: 1.7rem;
+        margin-top: -2rem;
+        width: 100%;
     }
 }
