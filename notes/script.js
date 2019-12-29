@@ -1,9 +1,6 @@
 /* ==========================
     To toggle between themes
 ========================== */
-
-localStorage.setItem('theme', '');
-
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
@@ -43,20 +40,32 @@ function clearTextArea() {
 
 clearButton.addEventListener('click', clearTextArea);
 
-/* ==================
-    To save notes
-=================== */
+/* ========================
+    To save notes and show
+    save-success display
+======================== */
 
 const saveButton = document.querySelector('.save-button');
+const saveSuccessModal = document.querySelector('.save-successful-modal');
+const addNoteArea = document.querySelector('.newnote-container');
+const addNoteButton = document.querySelector('.addnewnote-button');
+const emptyNoteAlert = document.querySelector('.hidden-alert');
 let notesList = new Array;
+
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function saveToStorage() {
     let note = textarea.value;
+    let noteDate = new Date;
     notesList.push({
         id: Date.now(),
-        text: note
+        text: note,
+        date: `Last edited at ${noteDate.toLocaleTimeString()} on ${days[noteDate.getDay()]}, ${noteDate.getDate()} ${months[noteDate.getMonth()]} ${noteDate.getFullYear()}`
     });
     localStorage['notes'] = JSON.stringify(notesList);
+    addNoteArea.style.display = 'none';
+    saveSuccessModal.style.display = 'block';
 }
 
 function saveNote() {
@@ -68,9 +77,15 @@ function saveNote() {
             saveToStorage();
         }
         textarea.value = '';
+        emptyNoteAlert.style.display = 'none';
     } else {
-        alert('Note cannot be empty');
+        emptyNoteAlert.style.display = 'block';
     }
 };
 
 saveButton.addEventListener('click', saveNote);
+
+addNoteButton.addEventListener('click', function() {
+    saveSuccessModal.style.display = 'none';
+    addNoteArea.style.display = 'block';
+})
