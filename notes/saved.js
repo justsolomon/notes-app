@@ -33,7 +33,6 @@ const editNote = document.querySelector('.edit-button');
 const deleteNote = document.querySelector('.delete-button');
 const exitModal = document.querySelector('.exit-modal-button');
 const editDate = document.querySelector('.time-edited');
-// const exitModalConfirm = document.querySelector('.exit-modal-confirmation');
 
 const list = document.createElement('ul');
 const notesNumber = document.createElement('p');
@@ -79,28 +78,54 @@ window.onload = getNote;
 //to delete all notes
 
 deleteAllButton.addEventListener('click', function() {
-    let confirmation = window.confirm(`Are you sure you want to delete all notes? Click "Ok" to continue or "Cancel" to abort this operation`);
-    if (confirmation === true) {
-        localStorage.removeItem('notes');
-        location.reload();
-    }
+    swal.fire({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover your notes!",
+            icon: "warning",
+            showCancelButton: true,
+            reverseButtons: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'Cancel'
+        })
+        .then((willDelete) => {
+            if (willDelete.value) {
+                localStorage.removeItem('notes');
+                swal.fire("All notes have been deleted successfully!", "", "success")
+                    .then(() => {
+                        location.reload();
+                    });
+            }
+        });
 })
 
 //to delete a specific note
 
 deleteNote.addEventListener('click', function() {
-    let confirmation = window.confirm(`Are you sure you want to delete this note? Click "Ok" to continue or "Cancel" to abort this operation`);
-    if (confirmation === true) {
-        notesList = notesList.filter(currentnote => {
-            return !(currentnote.id == textarea.id);
+    swal.fire({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this note!",
+            icon: "warning",
+            showCancelButton: true,
+            reverseButtons: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'Cancel'
+        })
+        .then((willDelete) => {
+            if (willDelete.value) {
+                notesList = notesList.filter(currentnote => {
+                    return !(currentnote.id == textarea.id);
+                });
+                localStorage['notes'] = JSON.stringify(notesList);
+                if (notesList == false) {
+                    localStorage.removeItem('notes');
+                }
+                swal.fire("Note deleted successfully!", "", "success")
+                    .then(() => {
+                        location.reload()
+                    });
+            }
         });
-        localStorage['notes'] = JSON.stringify(notesList);
-        if (notesList == false) {
-            localStorage.removeItem('notes');
-        }
-        location.reload();
-    }
-});
+})
 
 //to edit and save changes to a note
 
@@ -118,14 +143,31 @@ editNote.addEventListener('click', function() {
         }
     })
     localStorage['notes'] = JSON.stringify(notesList);
-    location.reload();
+    swal.fire({
+            title: "Changes saved successfully!",
+            icon: "success",
+            button: true,
+        })
+        .then(() => {
+            location.reload()
+        });
 })
 
 exitModal.addEventListener('click', function() {
-    let confirmation = window.confirm('Are you sure you want to exit? Any changes made to this note will not be saved');
-    if (confirmation === true) {
-        editModal.style.display = 'none';
-    } else {
-        editModal.style.display = 'block';
-    }
+    swal.fire({
+            title: "Are you sure?",
+            text: "Once you exit, any changes made to this note will not be saved!",
+            icon: "warning",
+            showCancelButton: true,
+            reverseButtons: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'Cancel',
+        })
+        .then((willExit) => {
+            if (willExit.value) {
+                editModal.style.display = 'none';;
+            } else {
+                editModal.style.display = 'block';
+            }
+        });
 })

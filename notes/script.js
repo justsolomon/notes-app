@@ -46,10 +46,7 @@ clearButton.addEventListener('click', clearTextArea);
 ======================== */
 
 const saveButton = document.querySelector('.save-button');
-const saveSuccessModal = document.querySelector('.save-successful-modal');
 const addNoteArea = document.querySelector('.newnote-container');
-const addNoteButton = document.querySelector('.addnewnote-button');
-const emptyNoteAlert = document.querySelector('.hidden-alert');
 let notesList = new Array;
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -64,8 +61,22 @@ function saveToStorage() {
         date: `Last edited at ${noteDate.toLocaleTimeString()} on ${days[noteDate.getDay()]}, ${noteDate.getDate()} ${months[noteDate.getMonth()]} ${noteDate.getFullYear()}`
     });
     localStorage['notes'] = JSON.stringify(notesList);
-    addNoteArea.style.display = 'none';
-    saveSuccessModal.style.display = 'block';
+    swal.fire({
+            allowOutsideClick: false,
+            title: "Note saved successfully!",
+            icon: "success",
+            showCancelButton: true,
+            reverseButtons: true,
+            confirmButtonText: 'Saved Notes',
+            cancelButtonText: 'New note'
+        })
+        .then((result) => {
+            if (result.value) {
+                window.location.assign("notes.html");
+            } else {
+                location.reload();
+            }
+        })
 }
 
 function saveNote() {
@@ -77,15 +88,12 @@ function saveNote() {
             saveToStorage();
         }
         textarea.value = '';
-        emptyNoteAlert.style.display = 'none';
     } else {
-        emptyNoteAlert.style.display = 'block';
+        swal.fire({
+            title: "Note cannot be empty!",
+            icon: "warning"
+        });
     }
 };
 
 saveButton.addEventListener('click', saveNote);
-
-addNoteButton.addEventListener('click', function() {
-    saveSuccessModal.style.display = 'none';
-    addNoteArea.style.display = 'block';
-})
