@@ -227,6 +227,11 @@ button {
     color: var(--font-color);
 }
 
+textarea:focus,
+button:focus {
+    outline: 0;
+}
+
 .action-button {
     width: 5em;
 }
