@@ -83,6 +83,13 @@ function saveNote() {
     if (textarea.value !== '') {
         if (localStorage.length === 1) {
             saveToStorage();
+        } else if (localStorage.length === 0) {
+            localStorage.setItem('theme', '');
+            saveToStorage();
+        } else if (localStorage.getItem('notes') === null) {
+            localStorage.clear();
+            localStorage.setItem('theme', 'null');
+            saveToStorage();
         } else {
             notesList = JSON.parse(localStorage['notes']);
             saveToStorage();
