@@ -1,19 +1,19 @@
 {
 	"name": "Notes App",
 	"short_name": "Notes App",
-	"start_url": "notes/notes.html",
+	"start_url": "notes.html",
 	"display": "standalone",
 	"background_color": "#ff8181",
 	"theme_color": "#5c657c",
 	"orientation": "portrait-primary",
 	"icons": [
 			{
-				"src":"/assets/android-chrome-192x192.png",
+				"src":"../assets/android-chrome-192x192.png",
 				"sizes":"192x192",
 				"type":"image/png"
 			},
 			{
-				"src":"/assets/android-chrome-512x512.png",
+				"src":"../assets/android-chrome-512x512.png",
 				"sizes":"512x512",
 				"type":"image/png"
 			}
