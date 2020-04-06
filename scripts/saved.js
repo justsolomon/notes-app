@@ -1,3 +1,17 @@
+//check if browser supports service worker
+//before registering the worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker
+            .register('/serviceWorker.js')
+            .then(res => console.log('Service worker registered'))
+            .catch(err => console.log('Service worker not registered', err))
+    }) 
+}
+
+/* ==========================
+    To toggle between themes
+========================== */
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
