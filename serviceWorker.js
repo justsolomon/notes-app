@@ -7,7 +7,13 @@ const assets = [
 	'/css/notestyle.css',
 	'/css/savednotestyle.css',
 	'/scripts/saved.js',
-	'/scripts/script.js'
+	'/scripts/script.js',
+	'/assets/android-chrome-192x192.png',
+	'/assets/android-chrome-512x512.png',
+	'/assets/apple-touch-icon',
+	'/assets/favicon-16x16.png',
+	'/assets/favicon-32x32.png',
+	'/assets/favicon.ico',
 ]
 
 //store assets in cache
