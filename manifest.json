@@ -1,0 +1,9 @@
+{
+	"name": "Notes App",
+	"short_name": "Notes App",
+	"start_url": "notes/notes.html",
+	"display": "standalone",
+	"background_color": "#ff8181",
+	"theme_color": "#5c657c",
+	"orientation": "portrait-primary"
+}
